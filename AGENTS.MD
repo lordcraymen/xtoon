@@ -21,7 +21,7 @@ P0 Correctness > P1 Security > P2 Maintainability > P3 Performance > P4 Speed.
 
 ## Style & Tooling
 - [STYLE-01] TypeScript strict mode; no `any` without comment `// justification: REASON`.
-- [STYLE-02] Use ESLint rules in `.eslintrc.js`; no suppressions without inline comment.
+- [STYLE-02] Use ESLint rules in `.eslintrc.cjs`; no suppressions without inline comment.
 - [STYLE-03] Run `npm run lint` and `npm run type-check` before committing.
 
 ## Tests

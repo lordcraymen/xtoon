@@ -34,6 +34,7 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.1",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^11.1.0",
     "@semantic-release/git": "^10.0.1",
@@ -45,10 +46,12 @@
     "@typescript-eslint/parser": "^6.21.0",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^8.57.0",
+    "eslint": "^8.57.1",
+    "globals": "^16.5.0",
     "husky": "^9.1.7",
     "semantic-release": "^22.0.12",
     "typescript": "5.3.3",
+    "typescript-eslint": "^8.46.4",
     "vitest": "^3.2.4"
   },
   "config": {
