@@ -1,0 +1,32 @@
+{
+  "name": "@lordcraymen/xtoon",
+  "version": "0.0.0-dev",
+  "description": "A tool that **expands** XTOON authoring syntax into plain XML and **lints** authoring blocks for determinism",
+  "keywords": [
+    "xml",
+    "compaction",
+    "structured",
+    "data",
+    "efficient",
+    "semantic",
+    "markup"
+  ],
+  "homepage": "https://github.com/lordcraymen/xtoon#readme",
+  "bugs": {
+    "url": "https://github.com/lordcraymen/xtoon/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lordcraymen/xtoon.git"
+  },
+  "license": "MIT",
+  "author": "Florian \"lordcraymen\" Patzke",
+  "type": "module",
+  "main": "dist/index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "vitest run"
+  }
+}

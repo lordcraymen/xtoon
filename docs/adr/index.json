@@ -1,0 +1,39 @@
+{
+  "generatedAt": "2025-11-12T14:25:36.120Z",
+  "total": 2,
+  "adrs": [
+    {
+      "id": "ADR-0001",
+      "title": "ADR-0001: Automated NPM Releases with Semantic Release",
+      "status": "Accepted",
+      "summary": "Implement Semantic Release for automated NPM publishing with version management and changelog generation.",
+      "date": "2025-11-12",
+      "tags": [
+        "automation",
+        "npm",
+        "ci-cd"
+      ],
+      "modules": [
+        ".github/"
+      ],
+      "path": "docs/adr/ADR-0001-automated-npm-releases-with-semantic-release.md"
+    },
+    {
+      "id": "ADR-0002",
+      "title": "ADR-0002: English as Primary Language for Documentation and Comments",
+      "status": "Accepted",
+      "summary": "Establish English as the mandatory language for all project documentation, comments, and textual content.",
+      "date": "2025-11-12",
+      "tags": [
+        "documentation",
+        "internationalization",
+        "standards"
+      ],
+      "modules": [
+        "docs/",
+        "src/"
+      ],
+      "path": "docs/adr/ADR-0002-english-as-primary-language-for-documentation-and-comments.md"
+    }
+  ]
+}
