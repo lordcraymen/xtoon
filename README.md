@@ -1,4 +1,4 @@
-# XTOON Agent — Expander & Linter for XML Tabular Object-Oriented Notation
+# XTOON — Expander & Linter for XML Tabular Object-Oriented Notation
 
 A tool that **expands** XTOON authoring syntax into plain XML and **lints** authoring blocks for determinism. It implements the v0.1 surface grammar plus the agreed extensions:
 
