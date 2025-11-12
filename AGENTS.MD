@@ -5,7 +5,7 @@ P0 Correctness > P1 Security > P2 Maintainability > P3 Performance > P4 Speed.
 
 ## Definition of Done
 - [DOD-01] All new/changed code has unit tests (min 80% coverage in changed files).
-- [DOD-02] Formatter + linter pass: `npm run lint` and `npm run type-check` with no errors.
+- [DOD-02] Formatter + linter pass: `npm run lint` and `npm run typecheck` with no errors.
 - [DOD-03] No new runtime warnings in `npm test`.
 - [DOD-04] Public APIs documented with JSDoc and 1 usage example.
 - [DOD-05] No secrets/keys; config via env vars only.
@@ -22,7 +22,7 @@ P0 Correctness > P1 Security > P2 Maintainability > P3 Performance > P4 Speed.
 ## Style & Tooling
 - [STYLE-01] TypeScript strict mode; no `any` without comment `// justification: REASON`.
 - [STYLE-02] Use ESLint rules in `.eslintrc.cjs`; no suppressions without inline comment.
-- [STYLE-03] Run `npm run lint` and `npm run type-check` before committing.
+- [STYLE-03] Run `npm run lint` and `npm run typecheck` before committing.
 
 ## Tests
 - [TEST-01] Unit tests: Arrange-Act-Assert; one assertion per test case.
@@ -135,7 +135,7 @@ if (xtoonNs !== 'urn:xtoon') {
 
 ### Pre-Commit Checklist (30 seconds)
 1. [ ] Run `npm run lint` → passes
-2. [ ] Run `npm run type-check` → passes
+2. [ ] Run `npm run typecheck` → passes
 3. [ ] Run `npm test` → passes
 4. [ ] Review changed files for SOLID violations
 5. [ ] Test with sample XTOON files (valid & invalid)
