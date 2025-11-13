@@ -49,6 +49,14 @@ P0 Correctness > P1 Security > P2 Maintainability > P3 Performance > P4 Speed.
 - [LOG-02] CLI exit codes: 0 = success, 1 = parse/validation error, 2 = usage error.
 - [LOG-03] `--stop-at N` limits error count; still report total error count at end.
 
+## Tooling & Automation
+- [TOOL-01] **Commandline**: In a Windows Environemnt assume that you are in a Powershell, alsways execute cmd to move into a standard wirdows terminal
+- [TOOL-02] **Automation first**: Prefer CLI automation over manual web UI interactions for reproducibility.
+- [TOOL-03] **Issue tracking**: When creating GitHub issues, prepare issue body in a markdown file (e.g., in `docs/todo/`) before submitting.
+- [TOOL-04] **GitHub CLI**: Use `gh` for issue management; create issues with `gh issue create --title "<Title>" --body-file path/to/file.md`.
+
+
+
 ## Output Contract
 Return:
 1. **PLAN**: Brief summary of changes (2-4 lines).
