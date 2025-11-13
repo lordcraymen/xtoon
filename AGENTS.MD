@@ -55,7 +55,22 @@ P0 Correctness > P1 Security > P2 Maintainability > P3 Performance > P4 Speed.
 - [TOOL-03] **Issue tracking**: When creating GitHub issues, prepare issue body in a markdown file (e.g., in `docs/todo/`) before submitting.
 - [TOOL-04] **GitHub CLI**: Use `gh` for issue management; create issues with `gh issue create --title "<Title>" --body-file path/to/file.md`.
 
+## Issue Resolution Workflow
+For P0/P1 issues (and optionally P2+), follow this structured approach:
 
+1. **Analyze**: Read issue details; gather context from codebase
+2. **Discuss**: Present 2-3 solution options with pros/cons; wait for user decision
+3. **ADR**: Create ADR in `docs/adr/` documenting chosen solution and rationale
+4. **Implement**: Code changes following DOD/SOLID/STYLE rules
+5. **Verify**: Run `npm run lint`, `npm run typecheck`, `npm test`
+6. **Commit**: Push ADR and implementation (separate commits or together as appropriate)
+7. **Close**: Use `gh issue close <number> --comment "Resolved via ADR-XXXX and commit <hash>"`
+
+**Rules**:
+- [ISSUE-01] Always discuss options before implementing; no surprise solutions.
+- [ISSUE-02] ADR must exist before closing issue; links issue number in "Context" section.
+- [ISSUE-03] Close via CLI with reference to ADR and commit(s).
+- [ISSUE-04] If issue reveals need for guardrails, update `AGENTS.md` as part of resolution.
 
 ## Output Contract
 Return:
