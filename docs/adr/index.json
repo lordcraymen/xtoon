@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-13T00:00:00.000Z",
-  "total": 3,
+  "generatedAt": "2025-11-13T12:00:00.000Z",
+  "total": 4,
   "adrs": [
     {
       "id": "ADR-0001",
@@ -51,6 +51,23 @@
         "src/"
       ],
       "path": "docs/adr/ADR-0003-no-cli-parameter-overrides.md"
+    },
+    {
+      "id": "ADR-0004",
+      "title": "ADR-0004: RFC 4180 CSV Quoting and Escaping",
+      "status": "Accepted",
+      "summary": "Adopt RFC 4180 as the authoritative CSV quoting and escaping specification for XTOON row parsing, with clarifications for tail capture and error handling.",
+      "date": "2025-11-13",
+      "tags": [
+        "specification",
+        "parsing",
+        "security"
+      ],
+      "modules": [
+        "src/parser/",
+        "src/"
+      ],
+      "path": "docs/adr/ADR-0004-rfc-4180-csv-quoting-and-escaping.md"
     }
   ]
 }

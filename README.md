@@ -103,12 +103,43 @@ Options:
 
 ## Row parsing
 
-1. Determine delimiter: `xt:sep` or default `,`.
-2. Tokenize a line into **N columns** where the **last** column may have `...` and captures to EOL.
-3. Leading/trailing spaces on unfenced, unquoted scalar cells are trimmed.
-4. Apply per-column semantics in order; if any step errors, record row/col and continue or stop per `--stop-at`.
+XTOON follows [RFC 4180](https://www.rfc-editor.org/rfc/rfc4180.html) for CSV quoting and escaping.
 
-> The agent accepts classic CSV quoting (`"…"`, `""` escape) but does **not** require it; `xml(desc)...` is usually enough to avoid quoting entirely.
+### Parsing Steps
+
+1. Determine delimiter: `xt:sep` attribute (required on `xt:table`).
+2. Tokenize a line into **N columns**:
+   - Fields may be quoted with double-quotes (`"`)
+   - Fields MUST be quoted if they contain: delimiter, quotes, or newlines
+   - Literal quotes inside quoted fields: double them (`""`)
+   - The **last** column may have `...` (tail capture) which captures remainder verbatim **without** CSV quote processing
+3. Trim leading/trailing spaces:
+   - Outside quotes: trimmed
+   - Inside quotes: preserved
+4. Apply per-column semantics (modifiers) in order; if any step errors, record row/col and continue or stop per `--stop-at`.
+
+### Quoting Examples
+
+```csv
+id,name,note
+1,Alice,No quotes needed
+2,Bob,"Contains, comma"
+3,Charlie,"Has ""embedded quote"""
+4,Dave,"Multi-line
+content"
+```
+
+### Tail Capture Override
+
+When the last column uses `...`, it bypasses CSV quote processing:
+
+```xml
+<items xt:sep="," xt:table="{@id, xml(content)...}">
+  1,<p>"This quote" is XML content, not CSV quoting</p>
+</items>
+```
+
+The delimiter before `content...` is the last one parsed; everything after is raw text to EOL.
 
 ---
 

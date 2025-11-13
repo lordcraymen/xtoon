@@ -34,7 +34,8 @@ P0 Correctness > P1 Security > P2 Maintainability > P3 Performance > P4 Speed.
 - [SEC-01] Validate all external inputs using Zod schemas.
 - [SEC-02] Secrets from env vars only; never hardcode (see [DOD-05]).
 - [SEC-03] Log errors without exposing sensitive data.
-- [SEC-04] Prevent XML external entity (XXE) attacks; disable external entities in parser.
+- [SEC-04] Prevent XML external entity (XXE) attacks; disable external entities in parser (especially in `xml()` modifier).
+- [SEC-05] CSV parsing follows RFC 4180; no special sanitization for CSV injection (out of scope - see ADR-0004).
 
 ## XTOON-Specific Rules
 - [XTOON-01] **Deterministic expansion**: No cross-insertion; each `xt:table` block expands independently.
@@ -42,7 +43,8 @@ P0 Correctness > P1 Security > P2 Maintainability > P3 Performance > P4 Speed.
 - [XTOON-03] **Error reporting**: Include row number, column number, and context snippet in all parse/validation errors.
 - [XTOON-04] **Column modifiers**: Validate function-style modifiers (`xml()`, `json()`, `binary()`, etc.) during parse, not expansion.
 - [XTOON-05] **Tail capture**: Only the final column may use `...`; error on misplaced tail capture.
-- [XTOON-06] **Delimiter precedence**: Element-level `xt:sep` overrides global/CLI `--sep`.
+- [XTOON-06] **CSV quoting**: Follow RFC 4180; tail capture (`...`) bypasses quote processing (see ADR-0004).
+- [XTOON-07] **Delimiter requirement**: `xt:sep` attribute is required on every `xt:table` element (see ADR-0003).
 
 ## Logging & CLI
 - [LOG-01] Use structured logging: `logger.info({ row, col, file }, 'message')`.
