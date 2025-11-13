@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-12T14:25:36.120Z",
-  "total": 2,
+  "generatedAt": "2025-11-13T00:00:00.000Z",
+  "total": 3,
   "adrs": [
     {
       "id": "ADR-0001",
@@ -34,6 +34,23 @@
         "src/"
       ],
       "path": "docs/adr/ADR-0002-english-as-primary-language-for-documentation-and-comments.md"
+    },
+    {
+      "id": "ADR-0003",
+      "title": "ADR-0003: No CLI Parameter Overrides - Document-Centric Design",
+      "status": "Accepted",
+      "summary": "Establish that XTOON documents are self-describing and portable. All processing parameters must be specified in XML attributes, not CLI flags.",
+      "date": "2025-11-13",
+      "tags": [
+        "architecture",
+        "cli",
+        "design-principle"
+      ],
+      "modules": [
+        "src/cli.ts",
+        "src/"
+      ],
+      "path": "docs/adr/ADR-0003-no-cli-parameter-overrides.md"
     }
   ]
 }
