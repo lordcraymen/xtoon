@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-13T12:00:00.000Z",
-  "total": 4,
+  "generatedAt": "2025-11-13T15:32:01.345Z",
+  "total": 5,
   "adrs": [
     {
       "id": "ADR-0001",
@@ -39,7 +39,7 @@
       "id": "ADR-0003",
       "title": "ADR-0003: No CLI Parameter Overrides - Document-Centric Design",
       "status": "Accepted",
-      "summary": "Establish that XTOON documents are self-describing and portable. All processing parameters must be specified in XML attributes, not CLI flags.",
+      "summary": "Establish that XTOON documents are self-describing and portable. All processing parameters must be specified in XML attributes, not CLI flags. CLI is for input/output paths and process control only.",
       "date": "2025-11-13",
       "tags": [
         "architecture",
@@ -68,6 +68,23 @@
         "src/"
       ],
       "path": "docs/adr/ADR-0004-rfc-4180-csv-quoting-and-escaping.md"
+    },
+    {
+      "id": "ADR-0005",
+      "title": "ADR-0005: Column Definition Syntax and Formal Grammar",
+      "status": "Accepted",
+      "summary": "Defines the formal EBNF grammar for xt:table column definitions, including attribute/element syntax, modifier arguments, tail capture placement, whitespace handling, and validation rules for duplicate column names.",
+      "date": "2025-11-13",
+      "tags": [
+        "grammar",
+        "parser",
+        "specification"
+      ],
+      "modules": [
+        "src/parser",
+        "src/validator"
+      ],
+      "path": "docs/adr/ADR-0005-column-definition-syntax-and-formal-grammar.md"
     }
   ]
 }
