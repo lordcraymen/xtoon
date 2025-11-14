@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-13T15:32:01.345Z",
-  "total": 5,
+  "generatedAt": "2025-11-14T00:00:00.000Z",
+  "total": 6,
   "adrs": [
     {
       "id": "ADR-0001",
@@ -85,6 +85,23 @@
         "src/validator"
       ],
       "path": "docs/adr/ADR-0005-column-definition-syntax-and-formal-grammar.md"
+    },
+    {
+      "id": "ADR-0006",
+      "title": "ADR-0006: QName Resolution and Namespace Handling",
+      "status": "Accepted",
+      "summary": "Defines when and how XML QNames and namespaces are resolved in XTOON templates, establishing a two-phase approach (parse-time syntax validation, expansion-time URI resolution) and confirming standard XML namespace inheritance rules apply.",
+      "date": "2025-11-14",
+      "tags": [
+        "specification",
+        "parser",
+        "namespaces"
+      ],
+      "modules": [
+        "src/parser/",
+        "src/expander/"
+      ],
+      "path": "docs/adr/ADR-0006-qname-resolution-and-namespace-handling.md"
     }
   ]
 }

@@ -197,23 +197,62 @@ QName          ::= (Prefix ":")? LocalName
 
 **Rationale**: This aligns with XTOON-04 (validate structure early) while deferring resolution until we have row data.
 
+**Core Principle**: **XTOON compatibility with XML standards**
+- XTOON input must be valid XML (well-formed, namespaces declared)
+- XTOON output must be valid XML (well-formed, namespaces resolved)
+- XTOON-specific rules can be stricter than XML, but never contradict XML standards
+
 **Proposed answers**:
 
 | Question | Answer |
 |----------|--------|
-| Q1.4.1: Resolution timing? | Syntax check at parse; URI resolution at expansion |
-| Q1.4.2: Default namespace? | Not applied to element names (QNames without prefix) |
+| Q1.4.1: Resolution timing? | Two-phase: syntax check at parse; URI resolution at expansion |
+| Q1.4.2: Default namespace? | **Standard XML rules apply**: unprefixed elements inherit the default namespace from their parent; can be overridden with explicit `xmlns` declarations |
 | Q1.4.3: Prefix on table element? | Yes, prefixes declared on `xt:table` element are in scope |
 | Q1.4.4: Prefix preservation? | Yes, preserve prefixes exactly as written (XTOON-02) |
-| Q1.4.5: Undefined prefix in `xml()`? | Error at expansion time with row/col context |
+| Q1.4.5: Undefined prefix in `xml()`? | **Parse and validate at expansion time**:<br>• Check well-formedness (balanced tags, proper syntax)<br>• Verify namespace prefixes are declared (in template or fragment)<br>• Error immediately with CSV row/col context<br>• Fail fast (stop on first error, unless `--stop-at N`)<br>• Self-contained `xmlns:*` declarations in fragments are valid |
 
-**Example**:
+**Examples**:
+
 ```xml
+<!-- Example 1: Namespace inheritance -->
+<items xmlns="http://example.org" xt:table="{@id, name}">
+  1,Alice
+</items>
+<!-- Output: -->
+<items xmlns="http://example.org">
+  <item id="1">
+    <name>Alice</name>  <!-- 'name' inherits http://example.org -->
+  </item>
+</items>
+
+<!-- Example 2: Prefix preservation -->
 <items xmlns:s="http://schema.org" xt:table="{@id, s:name}">
   1,Alice
 </items>
-<!-- Output: <item id="1"><s:name>Alice</s:name></item> -->
-<!-- Prefix 's:' preserved -->
+<!-- Output: -->
+<items xmlns:s="http://schema.org">
+  <item id="1">
+    <s:name>Alice</s:name>  <!-- Prefix 's:' preserved -->
+  </item>
+</items>
+
+<!-- Example 3: Self-contained namespace in xml() fragment -->
+<items xt:table="{@id, xml(desc)}">
+  1,<s:tag xmlns:s="http://schema.org">Valid</s:tag>
+</items>
+<!-- Output: -->
+<items>
+  <item id="1">
+    <s:tag xmlns:s="http://schema.org">Valid</s:tag>  <!-- Self-contained namespace OK -->
+  </item>
+</items>
+
+<!-- Example 4: Undefined prefix error -->
+<items xmlns:s="http://schema.org" xt:table="{@id, xml(desc)}">
+  1,<p:tag>Invalid</p:tag>
+</items>
+<!-- Error at row 1, column 2: Undefined namespace prefix 'p:' in XML fragment -->
 ```
 
 ---
