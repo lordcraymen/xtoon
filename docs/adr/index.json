@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-17T10:53:13.772Z",
-  "total": 7,
+  "generatedAt": "2025-11-17T11:12:32.266Z",
+  "total": 8,
   "adrs": [
     {
       "id": "ADR-0001",
@@ -118,6 +118,23 @@
         "src/"
       ],
       "path": "docs/adr/ADR-0007-xml-modifier-parsing-mode-and-behavior.md"
+    },
+    {
+      "id": "ADR-0008",
+      "title": "ADR-0008: JSON Modifier Mapping Rules",
+      "status": "Accepted",
+      "summary": "Defines the complete JSON-to-XML conversion rules for the json() modifier, including type mapping, invalid key handling, nested structure support, and security constraints to prevent prototype pollution and resource exhaustion.",
+      "date": "2025-11-17",
+      "tags": [
+        "modifiers",
+        "json",
+        "security"
+      ],
+      "modules": [
+        "src/modifiers/",
+        "src/parser/"
+      ],
+      "path": "docs/adr/ADR-0008-json-modifier-mapping-rules.md"
     }
   ]
 }
