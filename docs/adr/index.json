@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-14T00:00:00.000Z",
-  "total": 6,
+  "generatedAt": "2025-11-17T10:53:13.772Z",
+  "total": 7,
   "adrs": [
     {
       "id": "ADR-0001",
@@ -102,6 +102,22 @@
         "src/expander/"
       ],
       "path": "docs/adr/ADR-0006-qname-resolution-and-namespace-handling.md"
+    },
+    {
+      "id": "ADR-0007",
+      "title": "ADR-0007: xml() Modifier Parsing Mode and Behavior",
+      "status": "Accepted",
+      "summary": "Defines the xml() modifier as a strict fragment parser with self-contained namespace handling, preservation of all valid XML node types, fail-fast error handling for document-level constructs, and an internal wrapper mechanism that never appears in output.",
+      "date": "2025-11-17",
+      "tags": [
+        "column-modifiers",
+        "xml-parsing",
+        "specification"
+      ],
+      "modules": [
+        "src/"
+      ],
+      "path": "docs/adr/ADR-0007-xml-modifier-parsing-mode-and-behavior.md"
     }
   ]
 }
