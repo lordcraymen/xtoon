@@ -1,6 +1,6 @@
 {
   "generatedAt": "2025-11-17T11:12:32.266Z",
-  "total": 8,
+  "total": 9,
   "adrs": [
     {
       "id": "ADR-0001",
@@ -135,6 +135,24 @@
         "src/parser/"
       ],
       "path": "docs/adr/ADR-0008-json-modifier-mapping-rules.md"
+    },
+    {
+      "id": "ADR-0009",
+      "title": "ADR-0009: Two-Phase Validation Strategy",
+      "status": "Accepted",
+      "summary": "Establishes a two-phase validation model (parse-time structural validation, expansion-time content validation) that applies to all column modifiers, ensuring fail-fast error detection while deferring content-specific validation to expansion.",
+      "date": "2025-11-17",
+      "tags": [
+        "specification",
+        "validation",
+        "parser",
+        "expander"
+      ],
+      "modules": [
+        "src/parser/",
+        "src/expander/"
+      ],
+      "path": "docs/adr/ADR-0009-two-phase-validation-strategy.md"
     }
   ]
 }

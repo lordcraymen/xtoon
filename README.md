@@ -105,6 +105,22 @@ Options:
 
 XTOON follows [RFC 4180](https://www.rfc-editor.org/rfc/rfc4180.html) for CSV quoting and escaping.
 
+### Validation Model
+
+XTOON uses a **two-phase validation strategy**:
+
+**Parse Time (structural validation)**:
+- Validates modifier syntax and parameters before processing any rows
+- Checks: modifier names exist, QNames are valid, parameters are correct type
+- Fails fast on structural errors (invalid column definitions, missing `xt:sep`, etc.)
+
+**Expansion Time (content validation)**:
+- Validates cell content against modifier requirements for each row
+- Checks: JSON/XML syntax, scalar coercion, security constraints (prototype pollution, size limits)
+- Errors recorded per row/column; processing continues or stops per `--stop-at`
+
+This separation enables fail-fast error detection while deferring expensive content validation until actual row processing.
+
 ### Parsing Steps
 
 1. Determine delimiter: `xt:sep` attribute (required on `xt:table`).

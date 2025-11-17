@@ -41,7 +41,7 @@ P0 Correctness > P1 Security > P2 Maintainability > P3 Performance > P4 Speed.
 - [XTOON-01] **Deterministic expansion**: No cross-insertion; each `xt:table` block expands independently.
 - [XTOON-02] **Namespace preservation**: All QNames (e.g., `s:Person`) resolve using in-scope `xmlns:*` exactly as written.
 - [XTOON-03] **Error reporting**: Include row number, column number, and context snippet in all parse/validation errors.
-- [XTOON-04] **Column modifiers**: Validate function-style modifiers (`xml()`, `json()`, `binary()`, etc.) during parse, not expansion.
+- [XTOON-04] **Two-phase validation**: Parse-time validates modifier syntax & parameters; expansion-time validates cell content (see ADR-0009).
 - [XTOON-05] **Tail capture**: Only the final column may use `...`; error on misplaced tail capture.
 - [XTOON-06] **CSV quoting**: Follow RFC 4180; tail capture (`...`) bypasses quote processing (see ADR-0004).
 - [XTOON-07] **Delimiter requirement**: `xt:sep` attribute is required on every `xt:table` element (see ADR-0003).
